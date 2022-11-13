@@ -92,3 +92,11 @@ Memprediksi tipe pelanggan yang sangat berpotensial melakukan churn dengan melak
 5. Tahap awal pada feature transformation yaitu menklasifikasi apakah feature tersebut memiliki distribusi normal atau tidak berdasarkan nilai skew dan kurtosis. Setelah itu, dilakukan split dari data keseluruhan menjadi train set sebesar 70% dan test set sebesar 30%. Lalu, digunakan standardization untuk menyesuaikan nilai antar feature. Data training kemudian di-scaling menggunakan Standar Scaler kemudian dilakukan fit & transform, sedangkan pada data testing hanya dilakukan transform.
 6. Feature yang kurang relevan dalam proses pemodelan akan di drop, yaitu feature Customer ID sehingga total feature yang digunakan sebanyak 5 numerical feature, 13 categorical fitur dan 1 fitur target yaitu 'Churn'.
 7. Pada fitur target (Churn) terdapat imbalance data yang signifikan yaitu dengan nilai false sebanyak 83,12% dan nilai true sebesar 16,84%.Untuk menangani kondisi tersebut dilakukan proses oversampling untuk menyamakan rasio pada data training saja dengan menggunakan metode SMOTE yaitu dengan generate value baru untuk variablenya, berdasarkan distribusi data tersebut agar rasio data seimbang.
+
+## Stage 3 :
+### Modeling
+![Google Drive Image](https://drive.google.com/uc?export=view&id=15RM21tpRbpTwBcFhdBpRXpDL8M2-hzAF)
+Digunakan 5 alternatif dalam menentukan sebuah model dengan precision dan roc auc cross train test sebagai parameter. Didapatkan random forest sebagai model yang dipilih karena memiliki nilai minimum pada false positive dan gap sebesar 0,01.
+### Recommendation
+1. Meningkatkan service level dalam menangani customer complain dengan peningkatan produk  atau layanan yang diberikan seperti automation of customer service dan live chat.
+2. Tim Marketing bisa fokus pada customer yang sudah lama menggunakan aplikasi dalam memberikan promo dan rekomendasi produk agar bisa mempertahankan customer.
