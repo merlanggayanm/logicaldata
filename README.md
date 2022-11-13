@@ -82,5 +82,12 @@ Memprediksi tipe pelanggan yang sangat berpotensial melakukan churn dengan melak
 8. Tingkat customer yang churn lebih banyak pada pelanggan yang menggunakan sedikit kupon (1-2 saja) bahkan oleh pelanggan yang tidak menggunakan kupon sama sekali. Keputusan bisnis yang bisa dilakukan adalah memberikan coupon setiap tiap weekend atau tanggal tertentu.
 9. Tidak ada jaminan bahwa jika satisfaction score tinggi, maka probabilitas churn semakin rendah.
 
-
-
+## Stage 2 :
+### Preprocessing
+1. Dari keseluruhan data masih terdapat perbedaan pengisian data pada kategori tertentu, sehingga pada data tersebut dilakukan replace terlebih dahulu ke dalam satu value agar menghilangkan redudansi, yakni pada kolom PreferredLoginDevice dan PreferredPaymentMode dengan mereplace Phone menjadi Mobile Phone, kemudian CC menjadi Credit Card, lalu Cash On Delivery menjadi COD. Untuk menangani value feature yang masih kosong dilakukan imputasi dengan menginput nilai median dari setiap featue dikarenakan nilai mean dan median yang tidak timpang jauh dan nilai median bernilai absolut.
+2. Setelah dilakukakn pengecekan dataset tidak terdapat baris data yang memiliki nilai sama pada semua featurenya.
+3. Dengan metode z score, outliers yang akan dihilangkan sekitar 0,2 % yaitu 11 baris data yang akan di drop.
+4. Data categorical yang bertipe data object/string perlu diubah menjadi tipe data numerikal dengan feature encoding yang terbagi menjadi dua metode, untuk feature gender dilakukan label encoding dan untuk data yang memiliki lebih dari 2 kategori dilakukan one hot encoding.
+5. Tahap awal pada feature transformation yaitu menklasifikasi apakah feature tersebut memiliki distribusi normal atau tidak berdasarkan nilai skew dan kurtosis. Setelah itu, dilakukan split dari data keseluruhan menjadi train set sebesar 70% dan test set sebesar 30%. Lalu, digunakan standardization untuk menyesuaikan nilai antar feature. Data training kemudian di-scaling menggunakan Standar Scaler kemudian dilakukan fit & transform, sedangkan pada data testing hanya dilakukan transform.
+6. Feature yang kurang relevan dalam proses pemodelan akan di drop, yaitu feature Customer ID sehingga total feature yang digunakan sebanyak 5 numerical feature, 13 categorical fitur dan 1 fitur target yaitu 'Churn'.
+7. Pada fitur target (Churn) terdapat imbalance data yang signifikan yaitu dengan nilai false sebanyak 83,12% dan nilai true sebesar 16,84%.Untuk menangani kondisi tersebut dilakukan proses oversampling untuk menyamakan rasio pada data training saja dengan menggunakan metode SMOTE yaitu dengan generate value baru untuk variablenya, berdasarkan distribusi data tersebut agar rasio data seimbang.
