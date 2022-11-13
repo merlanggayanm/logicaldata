@@ -84,6 +84,7 @@ Memprediksi tipe pelanggan yang sangat berpotensial melakukan churn dengan melak
 
 ## Stage 2 :
 ### Preprocessing
+![Google Drive Image](https://drive.google.com/uc?export=view&id=182N3hLlIp2_OpGTlSVsPrDjeu2DaVIIO)
 1. Dari keseluruhan data masih terdapat perbedaan pengisian data pada kategori tertentu, sehingga pada data tersebut dilakukan replace terlebih dahulu ke dalam satu value agar menghilangkan redudansi, yakni pada kolom PreferredLoginDevice dan PreferredPaymentMode dengan mereplace Phone menjadi Mobile Phone, kemudian CC menjadi Credit Card, lalu Cash On Delivery menjadi COD. Untuk menangani value feature yang masih kosong dilakukan imputasi dengan menginput nilai median dari setiap featue dikarenakan nilai mean dan median yang tidak timpang jauh dan nilai median bernilai absolut.
 2. Setelah dilakukakn pengecekan dataset tidak terdapat baris data yang memiliki nilai sama pada semua featurenya.
 3. Dengan metode z score, outliers yang akan dihilangkan sekitar 0,2 % yaitu 11 baris data yang akan di drop.
